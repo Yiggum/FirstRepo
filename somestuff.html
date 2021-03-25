@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>arrays</title>
+        <script>
+        
+        </script>
+
+    <body>
+        <script> 
+var ourArray = [10,20,30,40,50];     //REMEMBER TO ALWAYS COUNT FROM 0 
+var ourData = ourArray[3];         // the number in the square bracker(index) is referring to the position inside the array
+ourArray[3] = 600;                //modifying the array so it is now [10,20,30,600,50]
+document.write(ourArray[3]);       
+document.write("<br>"); 
+
+ourArray.push(60,70,80);
+        document.write(ourArray);
+
+var removedFromOurArray = ourArray.pop();   //removes the final element of the array  .pop method
+document.write("<br>" + ourArray);
+
+var shiftedOurArray = ourArray.shift();     //removes the first element of the array  .shift method
+document.write("<br>" + ourArray);
+
+var unshiftOurArray = ourArray.unshift("Cat"); //places an element at the start of the array .unshift method
+document.write("<br>" + ourArray);
+
+function myReuseableFunctionName() {                                    //functions are a piece of code you write that can be called upon anytime you like
+    document.write("<br>" + "woah you just used a function");
+}
+
+myReuseableFunctionName();      //calling upon the function i made to do the thing i want it to do
+
+document.write("<br>");document.write("<br>")       
+function functionWithNumbers(a, b) { 
+    document.write(a + b);
+}
+functionWithNumbers(10,15);                     //this function adds the two numbers together that have been inputted
+document.write("<br>")
+document.write("#########")
+document.write("<br>")
+document.write("<br>")
+
+var myGLobal = 10;
+function fun1(){
+    oopsGlobal = 5
+}
+function fun2() {
+    var output = "";
+    if (typeof myGlobal != undefined) {
+        output += "myGlobal: " + myGLobal;
+    }
+    if (typeof oopsGlobal == undefined) {
+        output += " oopsGlobal: " + oopsGlobal;
+    }
+    document.write(output);
+}
+fun1();
+fun2();
+
+document.write("<br>");document.write("<br>");document.write("<br>");
+function myLocalScope() {                    //Scope refers to whether a piece of code can be found
+    var myScopeVar = 5;           
+    document.write(myScopeVar); //in this example the document.write is used inside the function so the "var myScopeVar" value can be found
+    }
+myLocalScope();
+document.write(myScopeVar); //beacuse myScopeVar was assigned inside the function this document.write will not work
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+    </body>
+   </head> 

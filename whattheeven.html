@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>whattheeven</title>
+        <script>
+        
+        </script>
+
+    <body>
+        <script> 
+        
+        var normalArray = ["Dave", 23];     //array can be filled with any data type
+
+        var nestedArray = [["The universe", 42], ["Everything", 101010]];   //nested array(or multi dimensional) are arrays within an array
+        
+
+        var ourArray = [10,20,30,40,50];     //REMEMBER TO ALWAYS COUNT FROM 0 
+        var ourData = ourArray[3];         // the number in the square bracker(index) is referring to the position inside the array
+        ourArray[3] = 600;                //modifying the array so it is now [10,20,30,600,50]
+        document.write(ourArray[3]);       
+        document.write("<br>"); 
+
+        ourArray.push(60,70,80);
+                document.write(ourArray);
+
+        document.write("<br>"); 
+        document.write("<br>"); 
+        document.write("<br>"); 
+
+        
+        var bigNestedArray = [[1,2,3,10,0], [4,5,6,20,30], [7,8,9,40,50], [10,11,12,60,70], [13,14,80,90,100]];   //COUNT FROM 0 
+        var searchTheNest = bigNestedArray [1][1];          //the first index chooses which array, the second chooses the value inside the array
+            //document.write("<br>" + searchTheNest);
+            document.write("<br>"); 
+        
+        for(i=0;i<bigNestedArray.length;i++){                 //for loops constantly runs a section of code until certain conditions are met 
+            document.write(bigNestedArray[i][i])              // the conditions of this loop is to make i equal the array length
+            document.write("<br>");     //the length of bigNesterArray is 5, the code will keep iterating until it has gone through 5 times
+        }
+
+
+
+
+
+
+
+
+
+        document.write("<br>")
+        document.write("<br>")
+        for(i=0;i<bigNestedArray.length;i++){                   //loop inside of a loop
+            for(j=0;j<bigNestedArray.length;j++){               
+                document.write(bigNestedArray[i][j])
+                document.write("<br>")                  //the first loop will not run until the code inside it has finished running
+            }                                           //j is the index value inside the array, i is the nested array
+            document.write("<br>")          
+        }      
+        
+        for(i=0;i<1000;i++){                    //this loop starts at 0 and counts up by 1 until it gets to its 1000th iteration
+            document.write(i)
+            document.write("<br>");
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </script>
+    </body>
+
+</head>
+</html>
+

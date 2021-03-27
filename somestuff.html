@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-            <title>arrays</title>
+            <title>arraysfunctionsstuff</title>
         <script>
         
         </script>
@@ -42,30 +42,314 @@ document.write("#########")
 document.write("<br>")
 document.write("<br>")
 
-var myGLobal = 10;
-function fun1(){
-    oopsGlobal = 5
-}
-function fun2() {
-    var output = "";
-    if (typeof myGlobal != undefined) {
-        output += "myGlobal: " + myGLobal;
-    }
-    if (typeof oopsGlobal == undefined) {
-        output += " oopsGlobal: " + oopsGlobal;
-    }
-    document.write(output);
-}
-fun1();
-fun2();
 
-document.write("<br>");document.write("<br>");document.write("<br>");
-function myLocalScope() {                    //Scope refers to whether a piece of code can be found
-    var myScopeVar = 5;           
-    document.write(myScopeVar); //in this example the document.write is used inside the function so the "var myScopeVar" value can be found
+var pokemon = "Pikachu";                                    //here pokemon has been defined
+
+function myPokemon() {
+    var pokemon = "<br>Charmander";                         //here pokemon is assigned again but as it is in a function its ok
+    document.write(pokemon);                                //this is reffered to as global and local Scope
+}
+
+document.write(pokemon);
+myPokemon();
+document.write("<br>");
+
+var pokemon2 = "Pikachu";
+
+function myPokemon2() {
+    var pokemon2 = "<br>Charmander";
+    return pokemon2
+}
+
+document.write(pokemon2);
+document.write(myPokemon2())
+
+document.write("<br>");document.write("<br>");
+
+
+
+
+function testEqual(val) {             //Function using the equal to operator, using == compares the two values
+    if (val == 10) {                 
+        return "Equal";
     }
-myLocalScope();
-document.write(myScopeVar); //beacuse myScopeVar was assigned inside the function this document.write will not work
+    return "Not Equal";
+}
+    document.write(testEqual(11));  //any number other than 10 will print Not Equal instead of Equal
+    document.write("<br>");
+
+
+
+
+function testStrict(val) {
+    if (val === 7) {                                        //Function using strict equals operator, compares the value and type
+        return "this is a perfect match, the number 7";     
+    }
+    return "this is not a 7, DENIED";
+}
+document.write(testStrict("7"));    //only the data value 7 may be entered here to be accepted
+document.write("<br>");
+
+
+
+
+function testNotEqual(val) {          
+    if (val != 100) {                   //using the inequality operator, strict inequality operators also work !==
+        return "Not Equal";
+    }
+    return "Equal";
+}
+document.write(testNotEqual(200));      //100 has to be entered here
+document.write("<br>");document.write("<br>");
+
+
+
+
+function testGreaterThanLessThan(val) {
+    if (val >= 100) {   //more than or equal to operator
+        return "It is greater than or Equal to 100";
+    }
+    if (val < 100) {   //less than operator
+        return "It is less than 100"
+            }
+}
+document.write(testGreaterThanLessThan(10));
+document.write("<br>");document.write("<br>");
+
+
+
+
+function testLogicalAnd(val) {
+    if (val <= 100 && val >= 200) {   //the && operator stands for "and", in this example both conditions need to be true to return "Yes"
+        return "Yes";
+    }
+    return "No";
+}
+document.write(testLogicalAnd(250));
+document.write("<br>");document.write("<br>");
+
+function testLogicalOr (val) {
+    if (val < 100 || val > 200) {    //the || operator stands for "or", in this example the conditions are to be less than 100 || more than 200
+        return "Outside 100-200";
+    }
+    return "Inside 100-200";
+}
+document.write(testLogicalOr(11));
+document.write("<br>");document.write("<br>");
+
+
+
+
+function testElse(val) {
+    var result = "";
+    if (val > 5) {
+        result = "Bigger than 5";
+    } else {                  
+        result = "5 or Smaller"
+    } 
+    return result;
+}
+document.write(testElse(6));
+document.write("<br>");document.write("<br>");
+
+
+
+
+function orderMyLogic(val) {   //order of this statement is important
+    if (val < 50) {            //if the 50 and the 100 were swapped around, any value given under 50 would still print out "less than 100"
+        return "Less than 50"; //this is because ocne the condition is met the rest of the code underneath will not be read
+    } else if (val < 100) {                    
+        return "Less than 100";
+    } else {
+        return "Greater than or equal to 100"
+    }
+}
+document.write(orderMyLogic(1));
+document.write("<br>");document.write("<br>");
+
+
+
+
+function howBigIsTheNumber(val) {       //chain of else statements to determine the size of a number
+    if (val < 5) {
+        return "Tiny"; 
+    } else if (val < 10) {
+        return "Small";
+    } else if (val < 15) {
+        return "Medium";
+    } else if (val < 20) {
+        return "Large";
+    } else {
+        return "Huge";
+    }
+}
+    document.write(howBigIsTheNumber(200));
+
+    document.write("<br>");document.write("<br>");
+
+
+
+
+function caseAndSwitch(val) {         
+        var answer = "";
+        switch(val) {                              
+                case 1 : 
+                answer = "Answer One";
+            break;
+                case 2 :
+                answer = "Answer Two";
+            break;
+                case 3 :
+                answer = "Answer Three";
+            break;
+        }
+        return answer;
+    }
+    document.write(caseAndSwitch(3));
+
+    document.write("<br>");
+    document.write("<br>");
+
+function switchCaseDefault(val) {         
+        var answer = "";
+        switch(val) {
+                case 1 : 
+                answer = "Answer One";
+            break;
+                case 2 :
+                answer = "Answer Two";
+            break;
+                case 3 :
+                answer = "Answer Three";
+            break;
+                default :                     //this example uses default, which works similar to an else statement
+                answer = "no no no no"        //in this example if 1, 2 or 3 is not passed through you will be told no
+            break;
+        }
+        return answer;
+    }
+        document.write(switchCaseDefault(1));
+
+document.write("<br>");  document.write("<br>");
+
+
+function sequentialSizes(num) {
+    var answer = "";
+    switch (num) {                     //multiple identical options in a switch statement
+        case 1:
+        case 2:
+        case 3:
+        answer = "low";
+            break;
+        case 4:
+        case 5:
+        case 6:
+        answer = "medium";
+            break;
+        case 7:
+        case 8:
+        case 9:
+        answer = "high";
+            break;   
+        default:    
+            answer = "no no no no no"
+            break;
+    }   
+    return answer
+}
+document.write(sequentialSizes(7));
+document.write("<br>");document.write("<br>");
+
+
+function isItLessThan(a, b) {            //can use return to give us a boleon value
+    return a < b 
+}
+document.write(isItLessThan(10, 11));
+document.write("<br>");document.write("<br>");document.write("<br>");
+
+/*
+var myCar = {
+    "Manufacturer": "Volkswagen",                this is an exanple of an object
+    "Model": "Golf",                             they can be numbers, strings arrays and any other data type
+    "Colour": "Black",
+    "Engine size/BHP": ["1.8", "150"]
+};
+
+*/ 
+
+var myCar = {
+    "Manufacturer": "Volkswagen",                
+    "Model": "Golf",                             
+    "Colour": "Black",
+    "Engine size/BHP": ["1.8", "150BHP"]
+};
+var manufacturerValue = myCar.Manufacturer;
+var modelValue = myCar.Model;
+var engineSizeValue = myCar["Engine size/BHP"];
+document.write(manufacturerValue + " " + modelValue + " " + engineSizeValue);  //this prints "Volkswagen Golf 1.8,150BHP"
+
+        document.write("<br>");document.write("<br>");
+
+
+var testObject0 = {
+    12: "dave",
+    15: "jeff",
+    10: "bob",
+};
+var playerNumber = 12;
+var player = testObject0[playerNumber];
+document.write(player);   //this will print out dave
+document.write("<br>");
+var mumsCar = {
+    "Manufacturer": "Ford",                
+    "Model": "Fiesta",                             
+    "Colour": "Blue",
+    "Engine size/BHP": ["1.2", "70BHP"]
+};
+mumsCar.wheels = 4   //this now adds another property into the object
+
+var dadsCar = {
+    "Manufacturer": "Dodge",                
+    "Model": "Superbee",                             
+    "Colour": "Yellow",
+    "Engine size/BHP": ["6.9", "350BHP"],
+    "Wheels": 4
+};
+delete dadsCar.Wheels;  //this will take away the wheels property of the object
+
+                                                 
+function listLookup(val) {
+    var result = "";
+
+    var lookup = {
+        "onedog": "1",
+        "twodog": "2",
+        "threedog": "3",
+        "fourdog": "4"
+    };
+    result = lookup[val];
+    return result;
+}
+document.write(listLookup("onedog"))                
+
+document.write("<br>");
+
+
+var myObject = {
+    green: "grass",
+    blue: "sky",
+    yellow: "sun"
+};
+
+function checkObj(checkProp) {
+    if (myObject.hasOwnProperty(checkProp)) {
+        return myObject[checkProp]
+    } else {
+        return "Not Found"
+    }
+}
+document.write(checkObj("green"));
+
 
 
 

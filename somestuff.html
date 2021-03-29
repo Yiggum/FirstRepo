@@ -32,7 +32,8 @@ function myReuseableFunctionName() {                                    //functi
 
 myReuseableFunctionName();      //calling upon the function i made to do the thing i want it to do
 
-document.write("<br>");document.write("<br>")       
+document.write("<br>");document.write("<br>")    
+   
 function functionWithNumbers(a, b) { 
     document.write(a + b);
 }
@@ -269,7 +270,7 @@ document.write("<br>");document.write("<br>");document.write("<br>");
 
 /*
 var myCar = {
-    "Manufacturer": "Volkswagen",                this is an exanple of an object
+    "Manufacturer": "Volkswagen",                this is an example of an object
     "Model": "Golf",                             they can be numbers, strings arrays and any other data type
     "Colour": "Black",
     "Engine size/BHP": ["1.8", "150"]
@@ -349,9 +350,128 @@ function checkObj(checkProp) {
     }
 }
 document.write(checkObj("green"));
+document.write("<br>");
+
+var myCarStorage = {     //this is an exmaple of a nested object
+    "car": {
+        "inside": {
+            "glove box": "maps",
+            "passenger seat": "crumbs"
+        },
+        "outside": {
+            "boot": "jack"
+        }
+        }
+    };
+var glovesBoxContents = myCarStorage.car.inside["glove box"];
+document.write(glovesBoxContents);  //prints out "maps"
+document.write("<br>");
 
 
 
+var myDogList = [               //this is an example of an array with 2 nested objects inside it
+    {
+        type: "large dog",
+        list: [
+            "rottweiler",
+            "akita",
+            "american bulldog"
+        ]
+    },
+    {
+        type: "small dog",
+        list: [
+            "jack russel",
+            "dachshund",
+            "chihuahua"
+        ]
+    }
+];
+var secondLargeDog = myDogList[0].list[1];    //the first array in myDogList is the large dog array(index 0)
+                                              //the "list" part is also an array(nested inside large dog array)
+var firstSmallDog = myDogList[1].list[0]; 
+
+document.write(secondLargeDog + " " + firstSmallDog);
+document.write("<br>" + firstSmallDog);
+
+document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");
+
+
+
+
+
+var collectionMusic = {
+    "0001": {
+        "album": "all hope is gone",
+        "artist": "slipknot",
+        "tracks": [
+            "sulfur",
+            "dead memories"
+     ]
+    },
+    "0020": {
+        "album": "shikantaza",
+        "artist": "chinese man",
+        "tracks": [
+            "liar",
+            "escape"
+        ]
+    },
+    "1010": { 
+        "artist": "green day",
+        "tracks": [ ]
+    }, 
+    "2100": {
+        "album": "hard to beat"
+    }
+};
+
+var collectionMusicCopy = JSON.parse(JSON.stringify(collectionMusic));
+
+
+function updateRecordsMusic(id, prop, value) {
+    if (value === "") {
+        delete collectionMusic[id][prop];
+    } else if (prop === "tracks") {
+        collectionMusic[id][prop] = collectionMusic[id][prop] || [];
+        collectionMusic[id][prop].push(value);
+    } else {
+        collectionMusic[id][prop] = value
+    }
+    return JSON.stringify(collectionMusic);
+}
+
+console.log(collectionMusicCopy);
+document.write(updateRecordsMusic("0020", "tracks", "get up"));
+document.write("<br>");
+document.write(updateRecordsMusic("0020", "tracks", ""));
+document.write("<br>");
+updateRecordsMusic("2100", "tracks", "mirror in the bathroom");
+document.write(updateRecordsMusic("2100", "artist", "the beat"));
+document.write("<br>");document.write("<br>");
+
+var myWhileArray  = [];
+
+var i = 0;   
+ while (i < 5) {              //this will add 1 to i until i is no longer less than 5
+     myWhileArray.push(i);
+     i++;
+ }
+document.write(myWhileArray); //prints 0,1,2,3,4
+
+
+var myForArray = [];
+
+for (var i = 0; i < 5; i++) {     //does the same as above but using a for loop instead
+    myForArray.push(i);
+}
+document.write("<br>" + myForArray);
+document.write("<br>");
+var myOtherForArray =[];
+for (var i = 1; i <  10; i += 2) {    //does the same as above but counting in increments of 2
+    myOtherForArray.push(i);         
+}
+document.write(myOtherForArray);   //prints 1,3,5,7,9
 
 
 
